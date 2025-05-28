@@ -1,0 +1,41 @@
+{% block header %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/Components/header.css' %}">
+    {% if request.session.username %}
+    <header>
+        <img src="{% static 'images/base-bg/NikeLogo.png' %}" alt="Nike Logo" class="Nike-logo">
+        <nav>
+            <ul>
+                <li>
+                    <a href="{% url 'base' %}">Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'Shop' %}">Shop</a>
+                </li>
+            </ul>
+        </nav>   
+    </header>
+
+    {% else %} 
+    <header>
+        <img src="{% static 'images/base-bg/NikeLogo.png' %}" alt="Nike Logo" class="Nike-logo">
+        <nav>
+            <ul>
+                <li>
+                    <a href="{% url 'base' %}">Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'Shop' %}">Shop</a>
+                </li>
+                <li>
+                    <a href="{% url 'login' %}">Login</a>
+                </li>
+
+            </ul>
+        </nav>   
+    </header>
+
+    {% endif %}
+
+
+{% endblock %}

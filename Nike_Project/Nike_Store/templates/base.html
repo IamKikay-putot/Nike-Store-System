@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/Files/base.css' %}">
+</head>
+<body>
+    {% include 'Contents/Header.html'%}
+    {% include 'Contents/sideBar_user.html'%}
+    <div class="content-div">
+        {% include 'Contents/SearchBar.html' %}
+        {% comment %} <h2>Performance, Style, and Innovation — Built to Empower Every Move</h2> {% endcomment %}
+        <h2>Step Into Excellence with Nike — Redefining Comfort, Performance, and Style in Every Shoe</h2>
+    </div>
+    {% include 'Contents/Categories.html'%}
+    {% include 'Contents/footer.html'%}
+    <script src={% static 'FILES_JS/sideBar.js' %}></script>
+
+
+</body>
+</html>

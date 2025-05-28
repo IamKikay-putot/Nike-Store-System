@@ -1,0 +1,316 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="{% static 'css/Files/Shop.css'%}">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+</head>
+<body>
+    {% include 'Contents/Header.html'%}
+    {% include 'Contents/sideBar_user.html'%}
+    {% include 'Contents/SearchBar.html'%}
+    <header class='shop-header'     >
+        <p class='title-filter'><span class='filterGender-text'></span> <span class='filterCat-text'></span> Shoes</p>
+        <a href="#" id='filter-btn'>
+            <p><span id='HideText' style='display: none;'>Hide</span><span id='OpenText'>Open</span> Filters</p>
+            <span class="material-symbols-outlined">filter_alt</span>  
+        </a>
+    </header>    
+    <div class="Shop-div-container"     >
+        <aside class='Filter' style='display: none;'>
+            <h1>Filter</h1>
+            <a href="#" id='Filter-Lifestyle'>Lifestyle</a>
+            <a href="#" id='Filter-Jordan'>Jordan</a>
+            <a href="#" id='Filter-Running'>Running</a>
+            <a href="#" id='Filter-Football'>Football</a>
+            <a href="#" id='Filter-Basketball'>Basketball</a>
+            <a href="#" id='Filter-Gym_And_Training'>Gym and Training</a>
+            <hr>
+            <label class='Gender-title'>
+                <h1>Gender</h1>
+                <button class='Gender-dropDown'><span class="material-symbols-outlined" data-arrow-down>keyboard_arrow_down</span></button>   
+            </label>
+            <div class='Gender-div' style='display: none;'>
+                <label>
+                    <input type="checkbox" id='Checkbox-Men' value='Men'>
+                    <span>Men</span>
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" id='Checkbox-Women' value='Women'>
+                    <span>Women</span>
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" id="Checkbox-Kid's" value="Kid's">
+                    <span>Kid's</span>
+                </label>
+            </div>
+            <hr>
+        </aside>
+        <main class='Main-Shoes'    >
+            {% for items in products%}
+                <div class="FilterGender {% if items.gender == 'Men'%}Men{% elif items.gender == 'Women'%}Women{% elif items.gender == "Kid's"%}Kid's{% else %}AllProducts{% endif %}"
+                >
+                    <figure class="FilterCategories {% if items.shoes_categories == 'Lifestyle'%}Lifestyle{% elif items.shoes_categories == 'Jordan'%}Jordan{% elif items.shoes_categories == 'Running'%}Running{% elif items.shoes_categories == 'Football'%}Football{% elif items.shoes_categories == 'Basketball'%}Basketball{% elif items.shoes_categories == 'Gym and Training'%}GymAndTraining{% else %}FilterAll{% endif %}">
+                        <a href="#" class='product' data-id ={{ items.id }}>
+                            <img src= {{ items.image.url }} alt="Product-main-pic" class='Product-main-pic'>
+                            <figcaption>{{ items.ProductName }}</figcaption>
+                            <p class='Shoes-categories'>{{ items.shoes_categories }}</p>
+                            <p>{{ items.gender }}</p>
+                            <p>₱ {{ items.price }}</p>
+                        </a>
+                    </figure>
+                </div>
+            {% endfor %}
+
+        </main> 
+        <section class='product-showCase' style='display:none;' data-user='{{request.session.username}}'> <!-- there will be invisible dataset.id will be set here
+            which is the id of the product stores in data-id = "(items.id)"  -->
+            <div class='images'>
+                <div class='aside-images'>
+                    <img src="" alt="" class='first-image'>
+                    <img src="" alt="" class='second-image'>
+                    <img src="" alt="" class='third-image'>
+                    <img src="" alt="" class='fourth-image'>
+                    <img src="" alt="" class='fifth-image'>
+                </div>
+                <div class="main-image-show">
+                    <img src="" alt="" class='main-image'>
+                </div>
+            </div>
+            <div class='product-details'> 
+                <strong></strong>
+                <p></p>
+                <p></p>
+                <p></p>
+                <div class="sizesSelection">
+                    <strong>Select Size</strong><span class='promt-selectSize' style='display: none;'>( Please select size )</span>
+                    <br>
+                    <div class='size-container'>
+                        <label>
+                            <input type="radio" name='size' value='US 7'>
+                            <span>US 7</span>
+                        </label>
+                        <label>
+                            <input type="radio" name='size' value='US 7.5'>
+                            <span>US 7.5</span>
+                        </label>
+                        <label>
+                            <input type="radio" name='size' value='US 8'>
+                            <span>US 8</span>
+                        </label>
+                        <label>
+                            <input type="radio" name='size' value='US 8.5'>
+                            <span>US 8.5</span>
+                        </label>
+                        <label>
+                            <input type="radio" name='size' value='US 9'>
+                            <span>US 9</span>
+                        </label>
+                        <label>
+                            <input type="radio" name='size' value='US 9.5'>
+                            <span>US 9.5</span>
+                        </label>
+                        <label>
+                            <input type="radio" name='size' value='US 10'>
+                            <span>US 10</span>
+                        </label>
+                        <label>
+                            <input type="radio" name='size' value='US 10.5'>
+                            <span>US 10.5</span>
+                        </label>
+                        <label>
+                            <input type="radio" name='size' value='US 11'>
+                            <span>US 11</span>
+                        </label>
+                        <label>
+                            <input type="radio" name='size' value='US 11.5'>
+                            <span>US 11.5</span>
+                        </label>
+                        <label>
+                            <input type="radio" name='size' value='US 12'>
+                            <span>US 12</span>
+                        </label>
+                        <label>
+                            <input type="radio" name='size' value='US 12.5'>
+                            <span>US 12.5</span>
+                        </label>
+                        <label>
+                            <input type="radio" name='size' value='US 13'>
+                            <span>US 13</span>
+                        </label>
+                    </div>
+                </div>
+                <div class='description'>
+                    {% comment %} <p>Inspired by the original AJ1, the Air Jordan 1 Mid offers fans a chance to follow in MJ's footsteps. Fresh colour trims the clean, classic materials, imbuing modernity into a classic design.</p> {% endcomment %}
+                    <p></p>
+                </div>
+                <button id='AddToCart-btn' data-logged-in='{% if request.session.username %}userLoggedIn{% else %}notLoggedIn{% endif %}' >
+                    Add to Cart
+                </button>
+            </div>
+        </section>
+                    <!-- Add dataset that stores the id of the product here in product-showCase -->
+    </div>
+
+                
+
+    {% comment %} <div data-item-added-to-cart></div> {% endcomment %}
+    <div class='itemDetails' data-user='{{request.session.username}}'   style='display: none;'>
+        <div class='cart'>
+            <div class='cart-title'>
+                <h1>Cart</h1>
+            </div>
+            <!-- cloned element from template will be place here-->
+                 <template data-template>
+                    <div class='item' data-items-added>
+                        <input type="checkbox" class='item-checkbox' value='' data-item data-price data-quantity data-totalprice > 
+                        <img src="" alt="" data-image>
+                        <div class='details'>
+                            <strong></strong>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <span><button class='delete-button'><span class="material-symbols-outlined">delete</span></button></span>
+                            <label>
+                                <button data-minus-button>-</button>
+                                <input type="number" min="0" value="1" class='quantity-input' disabled>
+                                <button data-add-button>+</button>
+                            </label>
+
+                        </div>
+                    </div>
+                </template>
+        </div>
+        <div class='user-informations-order' style='display: none;'>
+            <div>
+                <button class='uio-back-button'>    
+                    <span class="material-symbols-outlined">reply</span>
+                </button>
+            </div>
+            <div class='container-order-informations'>
+                <form id='OrderForm'>
+                    <div class='user-inputs-order' data-itemId, data-member, data-itemName, data-itemPrice, data-quantity, data-totalprice, data-gender, data-category, data-size, data-itemImage>
+                        <div>
+                            <strong class='bd-txt'>Confirm Your Order Details</strong>
+                        </div>
+                        <label>
+                            Fullname *<br>
+                            <input type="text" name='Fullname' placeholder='Lastname, Firstname, Middlename'>
+                        </label>
+                        <br>
+                        <label>
+                            Email *<br>
+                            <input type="email" name='email'>
+                        </label>
+                        <br>
+                        <label>
+                            Contact Number *<br>
+                            <input type="number" name='ContactNumber' >
+                        </label>
+                        <br>
+                        <label>
+                            Shipping Address *<br>
+                            <textarea name="ShippingAddress" id="" placeholder='Street, Building, etc.'></textarea>
+                        </label>
+                        <br>
+                        <div class='forInfo'>
+                            <label>
+                                Enter Province *<br>
+                                <input type="text" name="province">
+                            </label>
+                            <br>
+                            <label>
+                                City/Municipality *<br>
+                                <input type="text" name="City">
+                            </label>
+                            <br>
+                            <label>
+                                Postal/ZIP Code *<br>
+                                <input type="text" name="Postal/ZIP">
+                            </label>
+                            <br>
+                            <label>
+                                Barangay/District *<br>
+                                <input type="text" name="Barangay/District">
+                            </label>
+                        </div>
+                    </div>
+                    <div class='payment-method'>
+                        <div>
+                            <strong class='paymentChoose'>How would you like to pay?</strong><br>
+                        </div>
+                        <div class='paymentMethod'>
+                            <button id='paypal-paymentmethod'>
+                                <img src="{% static 'images/paypal.webp' %}" alt="">
+                            </button>
+                            <button id='gcash-paymentmethod'>
+                                <img src="{% static 'images/gcash.jpg' %}" alt="">
+                            </button>
+                            <button id='COD-paymentMethod'>
+                                <span class="material-symbols-outlined">payments</span>
+                                Cash On Delivery
+                            </button>
+                        </div>
+                        <div class='payment-info'>
+                            <p class='COD-paymentInfo' style='display: none;'>Payment will be collected upon delivery</p>
+                            <p class='paypal-paymentInfo' style='display: none;'>Redirecting to PayPal for secure payment</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class='summary-container'>
+            <div class='Summary'>
+                <h1>Summary</h1>
+                <div class='infoSum'>
+                    <span>Subtotal</span><span class='sbtotal'data-subtotal>0.00</span><br>
+                    <span>Estimated Delivery & Handling</span><span class='freetxt'>₱ 240</span>
+                </div>
+                <hr>
+                <span>Total</span><span class='datatotal' data-total>0.00</span>
+                <button class='checkout-btn'>Checkout</button>
+                <div class='itemsSummary' >
+                    <template data-template-summary>
+                        <div class='item-summary' data-id data-user data-item-name data-price data-quantity data-totalprice data-totalpriceWithDeliveryFee data-gender data-category data-size data-itemImage>
+                            <div class='img-summary'>
+                                <img src="" alt="" data-image-summary>
+                            </div>
+                            <div class='info-summary'>
+                                <strong data-product-name-summary></strong><span class='info-summary-price'></span>
+                                <p></p>
+                                <p></p>
+                                <p></p><span class='info-summary-quantity'></span>
+                            </div>
+                        </div>
+                    </template>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='bg-loading' style='display: none;'>
+        <div class='container-loading' >
+            <div class='loading-content'>
+                <img src="{% static 'images/base-bg/NikeLogo.png' %}" alt="" class='nikeLogo'>
+            </div>
+            <div class='txtPO' style='display: none;'>
+                <p>Placed Order</p>
+            </div>
+        </div>
+    </div>
+
+    
+    
+<script src={% static 'FILES_JS/Shop.js' %}></script>
+<script src={% static 'FILES_JS/sideBar.js' %}></script>
+</body>
+</html>

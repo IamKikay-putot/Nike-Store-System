@@ -1,0 +1,122 @@
+{% block addproducts%}
+
+{% load static %}
+
+        <main id='Add-Products-Main' style="display: none;">
+            <h1>Create Product</h1>
+            <div class="container-addproducts">
+                <form id='add_product' enctype='multipart/form-data'>
+                    <div class="detailsProduct">
+                        <div class='items-details'>
+                            <label>
+                                Product Name
+                                <br><input type="text" name='Add_Product_Name' placeholder='Enter product name'>
+                            </label>
+                            <br>
+                            <br>
+                            <label>
+                                Description<br>
+                                <textarea name="description" id="" placeholder='Enter product description'></textarea>
+                            </label>
+                            <br>
+                            <br>
+                            <label>
+                                Price (₱)<br>
+                                <input type="number" name='Add_Product_Price' placeholder='e.g 2999.00'>
+                            </label>
+                            <br>
+                            <br>
+                            <label>
+                                Stocks<br>
+                                <input type="number" name='Add_Product_Stocks' placeholder='e.g 120'>
+                            </label>
+                            <br>
+                            <br>
+                            <label>
+                                Gender<br>
+                                <select name="Gender" id="">
+                                    <option value=''selected>Select Gender</option>
+                                    <option value='Men' >Men</option>
+                                    <option value='Women'>Women</option>
+                                    <option value="Kid's">Kid's</option>
+                                </select>
+                            </label>
+                            <br>  
+                            <br>
+                            <label>
+                                Shoes Category<br>
+                                <select name="category" id="">
+                                    <option value=''selected>Choose Category</option>
+                                    <option value='Lifestyle' >Lifestyle</option>
+                                    <option value='Jordan'>Jordan</option>
+                                    <option value="Running">Running</option>
+                                    <option value="Football">Football</option>
+                                    <option value="Basketball">Basketball</option>
+                                    <option value="Gym and Training">Gym and Training</option>
+                                </select>
+                            </label>
+
+                        </div>
+                        <br>
+                        {% comment %} <div class='Sizes'>
+                            <label class='size-title'>Select Size</label>
+                            <label>
+                                <input type="radio" name='size' id='size-S' value='S'>
+                                S
+                            </label> 
+                            <label>
+                                <input type="radio" name='size' id='size-S' value='M'>
+                                M
+                            </label> 
+                            <label>
+                                <input type="radio" name='size' id='size-S' value='S'>
+                                L
+                            </label> 
+                            <label>
+                                <input type="radio" name='size' id='size-S' value='S'>
+                                XL
+                            </label> 
+                        </div> {% endcomment %}
+                            {% comment %} CONTINUE radio for sizes {% endcomment %}
+                    </div>
+                    <hr>
+                    {% comment %} <br> {% endcomment %}
+                    <div class='images-div'>
+                        <label>
+                            Upload Image Main<br>
+                            <input type="file" name='Add_Product_Image'>
+                        </label>
+                        <br>
+                        <label>
+                            Upload Sub-Image 1<br>
+                            <input type="file" name='Add_Product_Sub_Image_1'>
+                        </label>
+                        <br>
+                        <label>
+                            Upload Sub-Image 2<br>
+                            <input type="file" name='Add_Product_Sub_Image_2'>
+                        </label>
+                        <br>
+                        <label>
+                            Upload Sub-Image 3<br>
+                            <input type="file" name='Add_Product_Sub_Image_3'>
+                        </label>
+                        <br>
+                        <label>
+                            Upload Sub-Image 4<br>
+                            <input type="file" name='Add_Product_Sub_Image_4'>
+                        </label>
+                        <br>
+                        <label>
+                            Upload Sub-Image 5<br>
+                            <input type="file" name='Add_Product_Sub_Image_5'>
+                        </label>
+                        <br>
+                    </div>
+                    <input type="submit" value='Add Product'>
+
+                </form>
+            </div>
+        </main>
+
+{% endblock%}

@@ -1,0 +1,59 @@
+{% block sideBar %}
+{% load static %}
+
+{% if request.session.username and request.session.role == 'user' %}
+<link rel="stylesheet" href="{% static 'css/Components/sideBar_user.css' %}">
+
+    <div class='sidebar'>
+        <div id='toggleMenu'>
+            <button id='toggleMenu-btn'>
+                <span class="material-symbols-outlined" data-menu-open >menu_open</span>
+                <span class="material-symbols-outlined" style='display:none;' data-close>close</span>
+            </button>
+        </div>
+        <div class='user-sidebar'>
+            <img src="{% static 'images/default.png'%}"alt='user-profile' class='img-sidebar'>
+            <p class='users' style='display:none;'>{{request.session.username}}</p>
+            <a href="" id='menu_open'>
+                <span class="material-symbols-outlined" style='display:none;' data-user-setting>more_vert</span>
+            </a>
+        </div>  
+        <nav>
+            <a href="#" id='cart-sidebar-btn'>
+                <span class="material-symbols-outlined">add_shopping_cart</span>
+                <span class='span' style='display:none;'>Cart</span>
+            </a>
+            <a href="">
+                <span class="material-symbols-outlined">local_mall</span>
+                <span class='span' style='display:none;'>Orders</span>
+            </a>
+            <a href="{% url 'logout'%}">
+                <span class="material-symbols-outlined">logout</span>
+                <span class='span' style='display:none;'>Logout</span>
+            </a>
+        </nav>
+        {% comment %} <div class='poppup-added-to-cart-container'>
+            <div class='text'>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00c23a"><path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>
+                Added to Cart
+            </div>
+            <span class="material-symbols-outlined">arrow_left</span>
+            <div class="items-added-cart-details">
+                <div class='image-AC'>
+                    <img src="{% static 'images/jordan1low.avif' %}" alt="" class='img-AC'>
+                </div>
+                <div class="details-AC">
+                    <p>details</p>
+                </div>
+            </div>
+        </div> {% endcomment %}
+            {% comment %} <div class='poppup-success-msg' style='display: none;'>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>
+                Added to your Cart
+            </div> {% endcomment %}
+    </div>
+    <script src={% static 'FILES_JS/sideBar.js' %}></script>
+
+{% endif %}
+
+{% endblock %}

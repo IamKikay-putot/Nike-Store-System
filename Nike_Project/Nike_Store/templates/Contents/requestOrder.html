@@ -1,0 +1,62 @@
+{% block requestOrder%}
+{% load static %}
+
+            <div class="requestOrder">
+                <h2>Request Orders</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order id</th>
+                            <th>Customer Name</th>
+                            <th>Total Amount</th>
+                            <th>Orders Created</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in AllOrders%}
+                            {% if order.status == 'Pending'%}
+                            <tr class='orderDetails' 
+                            data-fullname ="{{order.Fullname}}",
+                            data-email = "{{order.email}}",
+                            data-contactnumber = "{{order.Contact_Number}}",
+                            data-shippingaddress = "{{order.ShippingAddress}}",
+                            data-province ="{{order.province}}",
+                            data-status = "{{order.status}}",
+                            data-Paymentmethod = "{{order.Payment_Method}}",
+                            data-totalpayments = "{{order.total_payments}}",
+                            data-orderid = "{{order.Order_id}}",
+                            data-member = "{{order.member}}",
+                            data-itemid = "{{order.item_ID}}",
+                            data-itemname = "{{order.item_Name}}",
+                            data-itemprice = "{{order.item_Price}}",
+                            data-itemqauntity = "{{order.item_quantity}}",
+                            data-totalprice = "{{order.item_totalprice}}",
+                            data-itemgender = "{{order.item_gender}}",
+                            data-itemcategory = "{{order.item_category}}",
+                            data-itemsize = "{{order.item_size}}",
+                            data-ordercreatedAt = "{{order.order_createdAt}}",
+                            data-itemimage = "{{order.item_image}}",
+                            data-city = "{{order.city}}",
+                            data-postal = "{{order.postal}}",
+                            data-barangay = "{{order.barangay}}">
+                                <td>{{ order.id }}</td>
+                                <td>{{ order.Fullname}}</td>
+                                <td>{{ order.item_totalprice }}</td>
+                                <td>{{ order.order_createdAt }}</td>
+                                <td style='color:{% if order.status == "Pending"%}orange{% endif %};'>{{ order.status }}</td>
+                                <td>
+                                    <button id='OrderDetails-button'>
+                                        Order Details
+                                    </button>
+                                </td>
+                            </tr>
+                            {%endif%}
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+
+{% endblock%}

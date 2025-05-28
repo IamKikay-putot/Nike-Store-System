@@ -1,0 +1,33 @@
+
+{% load static%}
+{% block signIn %}
+    <link rel="stylesheet" href="{% static 'css/Components/SignUp.css' %}">
+    <form id='Sign-Up-form' style="display: none;">
+        <h1>Sign Up</h1>
+
+        {% comment %} {% csrf_token %} {% endcomment %}
+        <label>
+            Username <br><input type='text' name='username-signUp' required>
+        </label>
+        <br> 
+        <label>
+            Password <br><input type='password' name='password-signUp' required>
+        </label>
+        <br>
+        <label>
+            Email <br><input type='email' name='email-signUp' required>
+        </label>
+        <br>
+        <label>
+            Contact Number <br><input type='number' name='contact-signUp' required>
+        </label>
+        <br>    
+        <label>
+            Address <br><input type='text' name='address-signUp' required>
+        </label>
+        <br>
+        <input type='submit' value='Sign Up' id='signUp-btn'>
+        <p>Already have an account? <a href =''>Sign In</a></p>
+    </form>
+    <script src ="{% static 'Controller/SignUp.js' %}"></script>
+{% endblock %}

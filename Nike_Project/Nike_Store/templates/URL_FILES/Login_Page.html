@@ -1,0 +1,34 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<link rel="stylesheet" href="{% static 'css/Files/Login_Page.css' %}">
+<body>
+
+    {% include 'Contents/Header.html'%}
+    <div class='container-login'>
+        <img src="{% static 'images/login_img/nikeAir.webp' %}" alt="Nike Logo" class='sign-in-img'>
+        <form id='login-form'>
+            <strong>Login</strong>
+
+            {% comment %} {% csrf_token %} {% endcomment %}
+            <label>
+                Username <br><input type='text' name='username' required>
+            </label>
+            <br> 
+            <label>
+                Password <br><input type='password' name='password' required>
+            </label><br>
+            <input type='submit' value='Login' id='login-btn'>
+            <p>Don't have an Account? <a href='#' id='SignUp'>Sign Up</a></p> 
+        </form>
+        {% include 'Contents/signUp.html' %}
+    </div>
+
+    <script src="{% static 'Controller/login.js' %}"></script>
+</body>
+</html>

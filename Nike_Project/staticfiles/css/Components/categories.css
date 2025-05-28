@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.container-categories {
+    position: relative;
+    /* border: 1px solid yellow; */
+    /* transform: translateY(-30%); */
+    top: -2%;
+    background-color: rgb(216, 218, 218);
+    padding: 20px;
+
+}
+.categories-div a {
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+
+}
+
+.container-categories nav {
+    display: flex;
+    position: relative;
+    justify-self: flex-start;
+    height: 5vh;
+    font-family: "Poppins", sans-serif;
+
+}
+
+.categories-div {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    /* justify-content: space-between; */
+    justify-content: center;
+    gap: 30px;
+    width: 76%;
+    border-radius: 5px;
+    /* border: 1px solid blue; */
+    background-color: white;
+    box-shadow: 1px 1px 15px rgb(255, 255, 255);
+    padding: 30px;
+}
+
+figure {
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid red; */
+    width: 16%;
+    max-height: 10%;
+    padding: 1%;
+    border-radius: 5px;
+    box-shadow: 1px 5px 15px rgba(128, 128, 128, 0.484);
+    background-color: rgb(246, 243, 243);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+figure img {
+    display: flex;
+    height: 160px;
+    /* justify-self: center; */
+    border-radius: 5px;
+}
+
+figure figcaption {
+    /* text-align: center; */
+    font-size: large;
+    color: black;
+    padding: 5px;
+}
+
+.cat {
+    color: rgb(80, 78, 78);
+}
+
+figure p {
+    padding-left: 5px;
+    color: black;
+}
+
+.nav-categories {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    height: auto;
+    left: 80%;
+    /* border: 1px solid red; */
+}
+.prev-button, .next-button {
+    /* border: 1px solid red; */
+    display: flex;
+    background-color: white;
+    box-shadow: 1px 1px 3px grey;
+    border-radius: 5px;
+}
+
+.num_pages {
+    /* border: 1px solid red; */
+}
+
